@@ -11,7 +11,7 @@ export default function SignIn({ currentUser, setCurrentUser }) {
   let [email, setEmail] = useState("");
   let [password, setPassword] = useState("");
   let [message, setMessage] = useState("");
-  const API_URL = "http://localhost:8080/api/user";
+  const API_URL = "https://pokemodoro-server.zeabur.app/api/user";
   //確認是否已經是登入狀態
   useEffect(() => {
     if (currentUser) {

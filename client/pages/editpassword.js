@@ -12,7 +12,7 @@ export default function SignUp({ currentUser, setCurrentUser }) {
   let [password, setPassword] = useState("");
   let [code, setCode] = useState("");
   let [message, setMessage] = useState(null);
-  const API_URL = "http://localhost:8080/api/user";
+  const API_URL = "https://pokemodoro-server.zeabur.app/api/user";
   //根據輸入的值改變需要送出的值
   const onChangeEmail = (e) => {
     setEmail(e.target.value);

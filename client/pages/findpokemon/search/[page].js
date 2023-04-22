@@ -3,9 +3,9 @@ import { useRouter } from "next/router";
 import { todayTrainingConvert, idConvert } from "../../../others/time.js";
 import axios from "axios";
 import style from "../../../styles/findsearch.module.scss";
-const API_URL = "http://localhost:8080/poke/findpokemon/search/";
-const SEARCH_URL = "http://localhost:3000/findpokemon/search/";
-const TRAINING_URL = "http://localhost:3000/training/";
+const API_URL = "https://pokemodoro-server.zeabur.app/poke/findpokemon/search/";
+const SEARCH_URL = "https://pokemodoro-client.zeabur.app/findpokemon/search/";
+const TRAINING_URL = "https://pokemodoro-client.zeabur.app/training/";
 
 export async function getServerSideProps({ params, req }) {
   //解析cookie

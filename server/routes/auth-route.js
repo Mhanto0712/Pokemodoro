@@ -15,7 +15,7 @@ import {
 import nodeMail from "../nodemailer.js";
 
 //用戶端網址
-const CLIENT_URL = "http://localhost:3000/";
+const CLIENT_URL = "https://pokemodoro-client.zeabur.app/";
 
 //mail驗證
 let CAPTCHA = {};

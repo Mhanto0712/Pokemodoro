@@ -1,5 +1,5 @@
 import axios from "axios";
-const API_URL = "http://localhost:8080/poke";
+const API_URL = "https://pokemodoro-server.zeabur.app/poke";
 
 axios.defaults.withCredentials = true;
 

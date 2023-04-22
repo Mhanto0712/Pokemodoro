@@ -16,8 +16,8 @@ import "react-circular-progressbar/dist/styles.css";
 import { easeLinear, easeQuadOut } from "d3-ease";
 import AnimatedProgressProvider from "../../components/AnimatedProgressProvider.js";
 const P = new Pokedex();
-const API_URL = "http://localhost:8080/poke/training/";
-const TRAINING_URL = "http://localhost:3000/training/";
+const API_URL = "https://pokemodoro-server.zeabur.app/poke/training/";
+const TRAINING_URL = "https://pokemodoro-client.zeabur.app/training/";
 
 export async function getServerSideProps({ params, req }) {
   //解析cookie
