@@ -154,7 +154,6 @@ export default function Training({
   useEffect(() => {
     //尚未進行收服
     if (data) {
-      console.log(data);
       //登入後，是否有username
       if (currentUser) {
         if (!getReqUser.data.username) {
@@ -656,7 +655,7 @@ export default function Training({
       document.cookie =
         "LastTrainingPokemon=" +
         data.id +
-        "; path=/; max-age=2592000; SameSite=lax";
+        "; path=/; max-age=2592000; domain=.zeabur.app";
       let checkDocument = await PokeService.checkDocument(realToken);
       if (checkDocument.data == "unStored") {
         await PokeService.addNewDocument(data.id, 0, 0, 0, realToken);
@@ -729,7 +728,6 @@ export default function Training({
         await adultJump();
         partConsump.current = 2;
       }
-      console.log("here");
     };
     if (startTraining) {
       interval.current.setInterval(jump, "", "60s");

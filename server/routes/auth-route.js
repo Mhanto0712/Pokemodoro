@@ -183,11 +183,6 @@ router.get("/deleteCookie", (req, res) => {
     sameSite: "none",
     secure: true,
   });
-  res.clearCookie("LastTrainingPokemon", {
-    domain: ".zeabur.app",
-    sameSite: "none",
-    secure: true,
-  });
   res.end();
 });
 
