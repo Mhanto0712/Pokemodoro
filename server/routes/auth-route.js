@@ -178,8 +178,16 @@ router.get("/findCookie", (req, res) => {
 });
 //刪除cookie資料
 router.get("/deleteCookie", (req, res) => {
-  res.clearCookie("PokemodoroUser", { domain: ".zeabur.app" });
-  res.clearCookie("LastTrainingPokemon", { domain: ".zeabur.app" });
+  res.clearCookie("PokemodoroUser", {
+    domain: ".zeabur.app",
+    sameSite: "none",
+    secure: true,
+  });
+  res.clearCookie("LastTrainingPokemon", {
+    domain: ".zeabur.app",
+    sameSite: "none",
+    secure: true,
+  });
   res.end();
 });
 
