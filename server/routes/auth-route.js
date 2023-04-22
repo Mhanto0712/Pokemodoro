@@ -102,6 +102,7 @@ router.post("/localsignin", async (req, res) => {
         maxAge: 2592000000,
         sameSite: "none",
         secure: true,
+        domain: ".zeabur.app",
       });
       return res.send({
         msg: "成功使用本地登入。",
@@ -164,6 +165,7 @@ router.get(
       maxAge: 2592000000,
       sameSite: "none",
       secure: true,
+      domain: ".zeabur.app",
     });
     return res.redirect(CLIENT_URL);
   }
