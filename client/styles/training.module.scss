@@ -1,0 +1,811 @@
+//font
+@font-face {
+  font-family: "Gen-M";
+  src: url(../public/font/GenJyuuGothic-Medium.ttf);
+}
+@font-face {
+  font-family: "Gen-B";
+  src: url(../public/font/GenJyuuGothic-Bold.ttf);
+}
+@font-face {
+  font-family: "Gen-H";
+  src: url(../public/font/GenJyuuGothic-Heavy.ttf);
+}
+
+//variable
+$primaryColor: #ffe766;
+$secondColor: #fff0a1;
+$titleColor: #4d1f00;
+
+//styling
+.remind {
+  background-color: rgba($titleColor, 0.8);
+  width: 30rem;
+  aspect-ratio: 2/1;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2rem;
+  animation: evolution 1.5s forwards;
+  @media screen and (max-width: 650px) {
+    width: 25rem;
+  }
+  @media screen and (max-width: 450px) {
+    width: 20rem;
+  }
+  @media screen and (max-width: 380px) {
+    width: 15rem;
+    left: 1rem;
+    transform: translate(0, 0);
+  }
+  .remindWord {
+    font-size: 1.5rem;
+    color: white;
+    @media screen and (max-width: 650px) {
+      font-size: 1rem;
+      line-height: 0.7rem;
+    }
+  }
+  .remindButton {
+    background-color: rgb($primaryColor, 0.8);
+    border-radius: 1rem;
+    color: $titleColor;
+    position: absolute;
+    bottom: 1rem;
+    padding: 0.5rem;
+    &:hover {
+      cursor: pointer;
+      transition: all 0.2s;
+      transform: scale(1.1);
+      background-color: $primaryColor;
+    }
+    &:active {
+      transition: all 0.1s;
+      transform: scale(1);
+    }
+    @media screen and (max-width: 380px) {
+      padding: 0 0.2rem;
+      border-radius: 0.5rem;
+    }
+  }
+}
+.whole {
+  background-color: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  min-width: 250px;
+  .top {
+    background-color: white;
+    width: 100%;
+    height: 100vh;
+    min-height: 40rem;
+    display: flex;
+    padding-top: 3rem;
+    @media screen and (max-width: 1150px) {
+      flex-direction: column;
+      height: auto;
+    }
+    .topLeft {
+      width: 45%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      @media screen and (max-width: 1150px) {
+        width: 100%;
+        padding: 2rem;
+        padding-top: 4rem;
+      }
+      @media screen and (max-width: 310px) {
+        padding-top: 6rem;
+      }
+      .circle {
+        position: relative;
+        background-color: white;
+        width: 70%;
+        aspect-ratio: 1 / 1;
+        border-radius: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        @media screen and (max-width: 1150px) {
+          width: 20rem;
+        }
+        .workAnimation {
+          position: absolute;
+        }
+        .sprites {
+          width: 60%;
+        }
+        .name {
+          @media screen and (max-width: 310px) {
+            font-size: 1rem;
+          }
+        }
+        ._id {
+          color: gray;
+          @media screen and (max-width: 310px) {
+            font-size: 1rem;
+          }
+        }
+      }
+    }
+    .topRight {
+      width: 55%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      @media screen and (max-width: 1150px) {
+        width: 100%;
+        padding: 2rem;
+      }
+      .topRightData {
+        width: 90%;
+        height: 90%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding-bottom: 2rem;
+        @media screen and (max-width: 1150px) {
+          padding: 0rem;
+          width: 100%;
+        }
+        .topBlock {
+          position: relative;
+          z-index: 0;
+          margin-bottom: 2rem;
+          width: 80%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          .topBlockLevel {
+            position: absolute;
+            z-index: 1;
+            transform: skewX(-20deg);
+            font-size: 8rem;
+            font-family: "Gen-M";
+            color: white;
+            @media screen and (max-width: 1350px) {
+              font-size: 6rem;
+            }
+            @media screen and (max-width: 1150px) {
+              font-size: 10rem;
+            }
+            @media screen and (max-width: 950px) {
+              font-size: 8rem;
+            }
+            @media screen and (max-width: 800px) {
+              font-size: 6rem;
+            }
+            @media screen and (max-width: 600px) {
+              font-size: 4rem;
+            }
+            @media screen and (max-width: 450px) {
+              font-size: 3rem;
+            }
+            @media screen and (max-width: 350px) {
+              font-size: 2rem;
+            }
+          }
+          .currentLevel {
+            position: relative;
+            z-index: 0;
+            width: 100%;
+          }
+        }
+        .belowCurrentLevel {
+          width: 65%;
+          height: 20%;
+          display: flex;
+          transform: skewX(-10deg);
+          @media screen and (max-width: 700px) {
+            width: 90%;
+          }
+          .left {
+            flex: 8 1 80%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+            .captureBlock {
+              background-color: $secondColor;
+              width: 90%;
+              height: 30%;
+              border-radius: 0.5rem;
+              transform: skewX(-10deg);
+              margin: 0.8rem 0rem;
+              .capture {
+                position: relative;
+                font-family: "Gen-B";
+                font-size: 2rem;
+                color: white;
+                transform: translate(-1rem, -0.7rem);
+                &::before {
+                  content: attr(data-stroke);
+                  position: absolute;
+                  z-index: -1;
+                  -webkit-text-stroke: 0.3rem black;
+                }
+                @media screen and (max-width: 1350px) {
+                  font-size: 1.5rem;
+                  transform: translate(-1rem, -0.5rem);
+                }
+                @media screen and (max-width: 480px) {
+                  font-size: 1.2rem;
+                  transform: translate(-0.5rem, -0.3rem);
+                }
+                @media screen and (max-width: 350px) {
+                  font-size: 0.7rem;
+                }
+              }
+            }
+            .growthBlock {
+              background-color: $secondColor;
+              width: 90%;
+              height: 30%;
+              border-radius: 0.5rem;
+              transform: skewX(-10deg);
+              margin: 0.8rem 0rem;
+              .growth {
+                position: relative;
+                font-family: "Gen-B";
+                font-size: 2rem;
+                color: white;
+                transform: translate(-1rem, -0.7rem);
+                &::before {
+                  content: attr(data-stroke);
+                  position: absolute;
+                  z-index: -1;
+                  -webkit-text-stroke: 0.3rem black;
+                }
+                @media screen and (max-width: 1350px) {
+                  font-size: 1.5rem;
+                  transform: translate(-1rem, -0.5rem);
+                }
+                @media screen and (max-width: 480px) {
+                  font-size: 1.2rem;
+                  transform: translate(-0.5rem, -0.3rem);
+                }
+                @media screen and (max-width: 350px) {
+                  font-size: 0.7rem;
+                }
+              }
+            }
+          }
+          .right {
+            flex: 32 1 20%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .trainingButton {
+              position: relative;
+              z-index: 0;
+              background-color: $secondColor;
+              width: 85%;
+              height: 85%;
+              border-radius: 0.5rem;
+              box-shadow: 0 0.3rem rgba($titleColor, 0.6);
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              &:hover {
+                cursor: pointer;
+                transition: all 0.25s;
+                transform: scale(1.1);
+              }
+              &:active {
+                transition: all 0.1s;
+                transform: scale(1);
+                background-color: $primaryColor;
+              }
+              .press {
+                width: 70%;
+              }
+              .startAndPause {
+                position: relative;
+                font-family: "Gen-B";
+                font-size: 1rem;
+                color: white;
+                &::before {
+                  content: attr(data-stroke);
+                  position: absolute;
+                  z-index: -1;
+                  -webkit-text-stroke: 0.3rem black;
+                }
+                @media screen and (max-width: 1300px) {
+                  font-size: 0.8rem;
+                }
+                @media screen and (max-width: 480px) {
+                  font-size: 0.6rem;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .bottom {
+    width: 100%;
+    height: 100vh;
+    min-height: 40rem;
+    display: flex;
+    @media screen and (max-width: 1150px) {
+      flex-direction: column;
+      height: auto;
+    }
+    .bottomLeft {
+      width: 50%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      @media screen and (max-width: 1150px) {
+        width: 100%;
+        padding: 1rem;
+        height: 40rem;
+      }
+      .data {
+        width: 90%;
+        height: 90%;
+        padding-left: 2rem;
+        @media screen and (max-width: 490px) {
+          padding: 0;
+        }
+        .topData {
+          background-color: $secondColor;
+          width: 90%;
+          height: 40%;
+          border-radius: 1rem;
+          padding: 1rem;
+          padding-top: 2rem;
+          display: flex;
+          @media screen and (max-width: 490px) {
+            width: 100%;
+          }
+          .left {
+            position: relative;
+            z-index: 0;
+            flex: 1 1 50%;
+            display: flex;
+            flex-direction: column;
+            .height {
+              height: 30%;
+              position: relative;
+              font-family: "Gen-B";
+              color: white;
+              &::before {
+                content: attr(data-stroke);
+                position: absolute;
+                z-index: -1;
+                -webkit-text-stroke: 0.3rem black;
+              }
+              @media screen and (max-width: 600px) {
+                font-size: 1.2rem;
+              }
+              @media screen and (max-width: 490px) {
+                font-size: 1rem;
+              }
+              @media screen and (max-width: 360px) {
+                font-size: 0.8rem;
+              }
+            }
+            .weight {
+              height: 30%;
+              position: relative;
+              font-family: "Gen-B";
+              color: white;
+              &::before {
+                content: attr(data-stroke);
+                position: absolute;
+                z-index: -1;
+                -webkit-text-stroke: 0.3rem black;
+              }
+              @media screen and (max-width: 600px) {
+                font-size: 1.2rem;
+              }
+              @media screen and (max-width: 490px) {
+                font-size: 1rem;
+              }
+              @media screen and (max-width: 360px) {
+                font-size: 0.8rem;
+              }
+            }
+            .gender {
+              height: 30%;
+              position: relative;
+              font-family: "Gen-B";
+              color: white;
+              &::before {
+                content: attr(data-stroke);
+                position: absolute;
+                z-index: -1;
+                -webkit-text-stroke: 0.3rem black;
+              }
+              @media screen and (max-width: 600px) {
+                font-size: 1.2rem;
+              }
+              @media screen and (max-width: 490px) {
+                font-size: 1rem;
+              }
+              @media screen and (max-width: 360px) {
+                font-size: 0.8rem;
+              }
+            }
+          }
+          .right {
+            position: relative;
+            z-index: 0;
+            flex: 1 1 50%;
+            .genera {
+              height: 30%;
+              position: relative;
+              font-family: "Gen-B";
+              color: white;
+              &::before {
+                content: attr(data-stroke);
+                position: absolute;
+                z-index: -1;
+                -webkit-text-stroke: 0.3rem black;
+              }
+              @media screen and (max-width: 600px) {
+                font-size: 1.2rem;
+              }
+              @media screen and (max-width: 490px) {
+                font-size: 1rem;
+              }
+              @media screen and (max-width: 360px) {
+                font-size: 0.8rem;
+              }
+            }
+            .ability {
+              height: 30%;
+              position: relative;
+              font-family: "Gen-B";
+              color: white;
+              &::before {
+                content: attr(data-stroke);
+                position: absolute;
+                z-index: -1;
+                -webkit-text-stroke: 0.3rem black;
+              }
+              @media screen and (max-width: 600px) {
+                font-size: 1.2rem;
+              }
+              @media screen and (max-width: 490px) {
+                font-size: 1rem;
+              }
+              @media screen and (max-width: 360px) {
+                font-size: 0.8rem;
+              }
+            }
+          }
+        }
+        .bottomData {
+          width: 90%;
+          height: 60%;
+          display: flex;
+          flex-direction: column;
+          padding-top: 1rem;
+          @media screen and (max-width: 490px) {
+            width: 100%;
+          }
+          .type {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            @media screen and (max-width: 490px) {
+              font-size: 1.2rem;
+            }
+            .typeName {
+              color: white;
+              padding: 0.5rem;
+              margin: 0.3rem;
+              border-radius: 0.5rem;
+            }
+          }
+          .weakness {
+            margin: auto 0;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            @media screen and (max-width: 490px) {
+              font-size: 1.2rem;
+            }
+            .weakName {
+              color: white;
+              padding: 0.5rem;
+              margin: 0.3rem;
+              border-radius: 0.5rem;
+            }
+          }
+        }
+      }
+    }
+    .bottomRight {
+      width: 50%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      @media screen and (max-width: 1150px) {
+        width: 100%;
+        padding: 1rem;
+        height: 50rem;
+      }
+      .data {
+        position: relative;
+        z-index: 0;
+        width: 90%;
+        height: 90%;
+        padding: 0rem 5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        @media screen and (max-width: 1150px) {
+          justify-content: space-around;
+          align-items: center;
+        }
+        .arrow {
+          height: 100%;
+          position: absolute;
+          z-index: -1;
+          right: 50%;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-evenly;
+          padding: 3rem 0rem;
+          transform: translateX(50%);
+          .arrow_30 {
+            width: 4rem;
+            transform: rotate(5deg);
+            @media screen and (max-width: 1250px) {
+              width: 3rem;
+            }
+          }
+          .arrow_135 {
+            width: 4rem;
+            transform: rotate(5deg);
+            @media screen and (max-width: 1250px) {
+              width: 3rem;
+            }
+          }
+        }
+        .evolve1 {
+          border: 0.6rem solid $secondColor;
+          background-color: white;
+          width: 12rem;
+          aspect-ratio: 1/1;
+          border-radius: 50%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          &:hover {
+            cursor: pointer;
+            transition: all 0.25s;
+            transform: scale(1.1);
+          }
+          &:active {
+            transition: all 0.1s;
+            transform: scale(1);
+          }
+          .evol1sprites {
+            width: 60%;
+          }
+          .evol1name {
+            font-size: 1rem;
+          }
+          .evol1id {
+            color: gray;
+            font-size: 1rem;
+          }
+        }
+        .evolve2 {
+          position: relative;
+          border: 0.6rem solid $secondColor;
+          background-color: white;
+          width: 12rem;
+          aspect-ratio: 1/1;
+          border-radius: 50%;
+          align-self: flex-end;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          @media screen and (max-width: 1150px) {
+            align-self: center;
+          }
+          &:hover {
+            cursor: pointer;
+            transition: all 0.25s;
+            transform: scale(1.1);
+          }
+          &:active {
+            transition: all 0.1s;
+            transform: scale(1);
+          }
+          .evol2button {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            display: flex;
+            align-items: center;
+            opacity: 0;
+            &:hover {
+              transition: all 1.2s;
+              opacity: 1;
+            }
+            @media screen and (max-width: 1150px) {
+              opacity: 1;
+            }
+            .evol2Right {
+              position: absolute;
+              width: 13%;
+              aspect-ratio: 1/1.3;
+              right: 0;
+              opacity: 0.8;
+              &:hover {
+                transition: all 0.2s;
+                transform: scale(1.2);
+              }
+              &:active {
+                transition: all 0.1s;
+                transform: scale(1.5);
+                opacity: 1;
+              }
+            }
+            .evol2Left {
+              position: absolute;
+              width: 13%;
+              aspect-ratio: 1/1.3;
+              left: 0;
+              opacity: 0.8;
+              &:hover {
+                transition: all 0.2s;
+                transform: scale(1.2);
+              }
+              &:active {
+                transition: all 0.1s;
+                transform: scale(1.5);
+                opacity: 1;
+              }
+            }
+          }
+          .evol2block {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            .evol2sprites {
+              width: 60%;
+            }
+            .evol2name {
+              font-size: 1rem;
+            }
+            .evol2id {
+              color: gray;
+              font-size: 1rem;
+            }
+          }
+          .evol2Cross {
+            width: 50%;
+          }
+        }
+        .evolve3 {
+          position: relative;
+          border: 0.6rem solid $secondColor;
+          background-color: white;
+          width: 12rem;
+          aspect-ratio: 1/1;
+          border-radius: 50%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          &:hover {
+            cursor: pointer;
+            transition: all 0.25s;
+            transform: scale(1.1);
+          }
+          &:active {
+            transition: all 0.1s;
+            transform: scale(1);
+          }
+          .evol3button {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            display: flex;
+            align-items: center;
+            opacity: 0;
+            &:hover {
+              transition: all 1.2s;
+              opacity: 1;
+            }
+            @media screen and (max-width: 1150px) {
+              opacity: 1;
+            }
+            .evol3Right {
+              position: absolute;
+              width: 13%;
+              aspect-ratio: 1/1.3;
+              right: 0;
+              opacity: 0.8;
+              &:hover {
+                transition: all 0.2s;
+                transform: scale(1.2);
+              }
+              &:active {
+                transition: all 0.1s;
+                transform: scale(1.5);
+                opacity: 1;
+              }
+            }
+            .evol3Left {
+              position: absolute;
+              width: 13%;
+              aspect-ratio: 1/1.3;
+              left: 0;
+              opacity: 0.8;
+              &:hover {
+                transition: all 0.2s;
+                transform: scale(1.2);
+              }
+              &:active {
+                transition: all 0.1s;
+                transform: scale(1.5);
+                opacity: 1;
+              }
+            }
+          }
+          .evol3block {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            .evol3sprites {
+              width: 60%;
+            }
+            .evol3name {
+              font-size: 1rem;
+            }
+            .evol3id {
+              color: gray;
+              font-size: 1rem;
+            }
+          }
+          .evol3Cross {
+            width: 50%;
+          }
+        }
+      }
+    }
+  }
+}
+
+//animation
+@keyframes evolution {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

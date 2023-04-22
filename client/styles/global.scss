@@ -1,0 +1,171 @@
+//font
+@font-face {
+  font-family: "Gen-M";
+  src: url(../public/font/GenJyuuGothic-Medium.ttf);
+}
+@font-face {
+  font-family: "Gen-B";
+  src: url(../public/font/GenJyuuGothic-Bold.ttf);
+}
+@font-face {
+  font-family: "Gen-H";
+  src: url(../public/font/GenJyuuGothic-Heavy.ttf);
+}
+
+//variable
+$primaryColor: #ffe766;
+$secondColor: #fff0a1;
+$titleColor: #4d1f00;
+
+//typeAndWeak color
+.normal {
+  background-color: #a8a77a;
+}
+.fire {
+  background-color: #ee8130;
+}
+.water {
+  background-color: #6390f0;
+}
+.electric {
+  background-color: #f7d02c;
+}
+.grass {
+  background-color: #7ac74c;
+}
+.ice {
+  background-color: #96d9d6;
+}
+.fighting {
+  background-color: #c22e28;
+}
+.poison {
+  background-color: #a33ea1;
+}
+.ground {
+  background-color: #e2bf65;
+}
+.flying {
+  background-color: #a98ff3;
+}
+.psychic {
+  background-color: #f95587;
+}
+.bug {
+  background-color: #a6b91a;
+}
+.rock {
+  background-color: #b6a136;
+}
+.ghost {
+  background-color: #735797;
+}
+.dragon {
+  background-color: #6f35fc;
+}
+.dark {
+  background-color: #705746;
+}
+.steel {
+  background-color: #b7b7ce;
+}
+.fairy {
+  background-color: #d685ad;
+}
+
+//styling
+* {
+  font-family: "Gen-B", DFKai-sb, Microsoft JhengHei;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+a {
+  color: black;
+  text-decoration: none;
+}
+body {
+  min-width: 250px;
+}
+nav {
+  background-color: $primaryColor;
+  .navbar-brand {
+    margin-left: 0.5rem;
+    margin-right: 1rem;
+    font-size: 1.75rem;
+    font-family: "Gen-H";
+    color: $titleColor;
+  }
+  .nav-title {
+    &:hover {
+      transition: all 0.25s;
+      color: white;
+    }
+  }
+  .navbar-nav {
+    .nav-item {
+      .nav-link {
+        padding: 0.5rem 1rem;
+        font-size: 1.25rem;
+        color: white;
+        &:hover {
+          color: rgb($titleColor, 0.5);
+        }
+      }
+      .dropdown-item {
+        color: rgb($titleColor, 0.8);
+        &:hover {
+          background-color: $secondColor;
+        }
+        &:active {
+          background-color: $primaryColor;
+        }
+      }
+      .active {
+        border-radius: 1rem;
+        background-color: rgb($titleColor, 0.8);
+        &:hover {
+          background-color: $secondColor;
+          color: rgb($titleColor, 0.5);
+        }
+      }
+    }
+  }
+}
+
+.backgroundIndexSignupSignin {
+  background-color: $secondColor;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -100;
+  width: 100%;
+  height: 100vh;
+  min-height: 40rem;
+}
+
+//loading
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 10px solid #f3f3f3; /* Light grey */
+  border-top: 10px solid #383636; /* Blue */
+  border-radius: 50%;
+  animation: spinner 1.5s linear infinite;
+}
+
+.spinner-container {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  height: 350px;
+}

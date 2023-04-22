@@ -1,0 +1,101 @@
+//variable
+$primaryColor: #ffe766;
+$secondColor: #fff0a1;
+$titleColor: #4d1f00;
+
+//styling
+.section {
+  background-color: $secondColor;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100vh;
+  min-height: 40rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  .whole {
+    padding: 1rem;
+    position: relative;
+    .google {
+      display: flex;
+      align-items: center;
+      margin: 1.5rem 0rem;
+    }
+    @media screen and (max-width: 350px) {
+      .google {
+        flex-direction: column;
+        align-items: start;
+      }
+    }
+    .row {
+      margin-bottom: 2rem;
+      .label {
+        color: rgb($titleColor, 0.5);
+        font-size: 1.25rem;
+      }
+      .input {
+        border: none;
+        font-size: 1.25rem;
+        &:focus {
+          border: none;
+        }
+      }
+      @media screen and (max-width: 350px) {
+        .label {
+          font-size: 1rem;
+        }
+        .input {
+          font-size: 1rem;
+        }
+      }
+    }
+    .forgetPassword {
+      float: left;
+      background-color: rgb(red, 0.5);
+      border: none;
+      color: white;
+      &:hover {
+        transition: all 0.25s;
+        background-color: red;
+      }
+      &:active {
+        transition: all 0.1s;
+        color: rgb(red, 0.5);
+      }
+    }
+    @media screen and (max-width: 350px) {
+      .forgetPassword {
+        position: absolute;
+        bottom: -5rem;
+        left: 50%;
+        transform: translate(-50%, 0);
+      }
+    }
+    .button {
+      float: right;
+      background-color: rgb($titleColor, 0.5);
+      border: none;
+      color: white;
+      &:hover {
+        transition: all 0.25s;
+        background-color: $titleColor;
+      }
+      &:active {
+        transition: all 0.1s;
+        color: $titleColor;
+      }
+    }
+    @media screen and (max-width: 350px) {
+      .button {
+        position: absolute;
+        bottom: -2.5rem;
+        left: 50%;
+        transform: translate(-50%, 0);
+      }
+    }
+  }
+}
