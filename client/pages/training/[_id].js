@@ -655,7 +655,7 @@ export default function Training({
       document.cookie =
         "LastTrainingPokemon=" +
         data.id +
-        "; path=/; max-age=2592000; domain=.zeabur.app ;SameSite=None ;Secure=true";
+        "; path=/; max-age=2592000; domain=.zeabur.app; SameSite=None; Secure=true";
       let checkDocument = await PokeService.checkDocument(realToken);
       if (checkDocument.data == "unStored") {
         await PokeService.addNewDocument(data.id, 0, 0, 0, realToken);
@@ -688,7 +688,7 @@ export default function Training({
           document.cookie =
             "LastTrainingPokemon=" +
             data.id +
-            "; path=/; max-age=2592000; SameSite=lax";
+            "; path=/; domain=.zeabur.app; SameSite=None; Secure=true";
           setStartTraining(true);
         } else if (startTraining) {
           setStartTraining(null);
@@ -705,7 +705,7 @@ export default function Training({
           document.cookie =
             "LastTrainingPokemon=" +
             data.id +
-            "; path=/; max-age=2592000; SameSite=lax";
+            "; path=/; domain=.zeabur.app; SameSite=None; Secure=true";
           setStartTraining(true);
         } else if (startTraining) {
           setStartTraining(null);
