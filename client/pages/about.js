@@ -25,7 +25,7 @@ export default function About({
   }, []);
 
   const images = [
-    "/about/關於1.png",
+    "/about/關於1 edit.png",
     "/about/關於2.png",
     "/about/關於3.png",
     "/about/關於4.png",
