@@ -35,7 +35,7 @@ app.use(cookieParser(process.env.COOKIE_SECRET));
 app.use(
   cors({
     credentials: true,
-    origin: true,
+    origin: "https://pokemodoro-client.zeabur.app",
   })
 );
 

@@ -100,6 +100,7 @@ router.post("/localsignin", async (req, res) => {
       res.cookie("PokemodoroUser", "JWT " + token, {
         signed: true,
         maxAge: 2592000000,
+        sameSite: "none",
       });
       return res.send({
         msg: "成功使用本地登入。",
@@ -160,6 +161,7 @@ router.get(
     res.cookie("PokemodoroUser", "JWT " + token, {
       signed: true,
       maxAge: 2592000000,
+      sameSite: "none",
     });
     return res.redirect(CLIENT_URL);
   }
