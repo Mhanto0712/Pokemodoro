@@ -27,7 +27,7 @@ export default function Layout({
         <meta name="author" content="劉洧瑄" />
         <meta
           name="description"
-          content="這是一個由Poke API所製作的番茄鐘網頁"
+          content="這是一個使用Poke API製作的番茄鐘網頁"
         />
         <title>Pokemodoro</title>
         <link rel="icon" href="/Pokemodoro.png" />
