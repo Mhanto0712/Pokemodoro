@@ -16,7 +16,7 @@ export default function Navbar({
   const currentRoute = router.asPath;
   const onClickSignOut = () => {
     document.cookie =
-      "LastTrainingPokemon=; path=/; max-age=0; domain=.zeabur.app";
+      "LastTrainingPokemon=; path=/; max-age=0; domain=.zeabur.app; sameSite=None ;secure=true";
     AuthService.signOut();
     window.alert("登出成功，將返回首頁。");
     setCurrentUser(null);

@@ -655,7 +655,7 @@ export default function Training({
       document.cookie =
         "LastTrainingPokemon=" +
         data.id +
-        "; path=/; max-age=2592000; domain=.zeabur.app";
+        "; path=/; max-age=2592000; domain=.zeabur.app ;sameSite=None ;secure=true";
       let checkDocument = await PokeService.checkDocument(realToken);
       if (checkDocument.data == "unStored") {
         await PokeService.addNewDocument(data.id, 0, 0, 0, realToken);
