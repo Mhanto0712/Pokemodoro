@@ -101,6 +101,7 @@ router.post("/localsignin", async (req, res) => {
         signed: true,
         maxAge: 2592000000,
         sameSite: "none",
+        secure: true,
       });
       return res.send({
         msg: "成功使用本地登入。",
@@ -162,6 +163,7 @@ router.get(
       signed: true,
       maxAge: 2592000000,
       sameSite: "none",
+      secure: true,
     });
     return res.redirect(CLIENT_URL);
   }
