@@ -16,7 +16,7 @@ import pokeRoute from "./routes/poke-route.js";
 //schedule
 import schedule from "node-schedule";
 import Pokemon from "./models/poke-model.js";
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 5000;
 
 mongoose
   .connect(process.env.MONGODB_ATLAS_CONNECTION)
@@ -45,7 +45,7 @@ app.use("/poke", passport.authenticate("jwt", { session: false }), pokeRoute);
 
 //Port
 app.listen(port, () => {
-  console.log("正在聆聽port 8080......");
+  console.log("正在聆聽port......");
 });
 
 //每天00:00:00更新todayTraining
