@@ -720,13 +720,13 @@ export default function Training({
     const jump = async () => {
       if (checkState == "isBaby") {
         await babyJump();
-        partConsump.current = 2;
+        partConsump.current = 1;
       } else if (checkState == "isTeen") {
         await teenJump();
-        partConsump.current = 2;
+        partConsump.current = 1;
       } else if (checkState == "isAdult") {
         await adultJump();
-        partConsump.current = 2;
+        partConsump.current = 1;
       }
     };
     if (startTraining) {
