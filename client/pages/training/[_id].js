@@ -291,7 +291,12 @@ export default function Training({
     const storeEvolution = async () => {
       if (checkState == "isBaby") {
         let { baby, teen } = data.evolution;
-        let isStored = await PokeService.checkPokemon(teen.id[0], realToken);
+        let isStored;
+        if (teen.id[0]) {
+          isStored = await PokeService.checkPokemon(teen.id[0], realToken);
+        } else {
+          isStored = { data: "unExisted" };
+        }
         if (baby.minLevel[0] == null) {
           if (changeLevel == 15 && isStored.data == "unStored") {
             for (let i = 0; i < teen.id.length; i++) {
@@ -317,7 +322,12 @@ export default function Training({
         }
       } else if (checkState == "isTeen") {
         let { teen, adult } = data.evolution;
-        let isStored = await PokeService.checkPokemon(adult.id[0], realToken);
+        let isStored;
+        if (adult.id[0]) {
+          isStored = await PokeService.checkPokemon(adult.id[0], realToken);
+        } else {
+          isStored = { data: "unExisted" };
+        }
         if (teen.minLevel[0] == null) {
           if (changeLevel == 30 && isStored.data == "unStored") {
             for (let i = 0; i < adult.id.length; i++) {
@@ -459,14 +469,24 @@ export default function Training({
   const babyJump = async () => {
     let { founddata } = data;
     let { evolution } = data;
-    let databaseFoundTeen = await PokeService.checkPokemon(
-      evolution.teen.id[0],
-      realToken
-    );
-    let databaseFoundAdult = await PokeService.checkPokemon(
-      evolution.adult.id[0],
-      realToken
-    );
+    let databaseFoundTeen;
+    if (evolution.teen.id[0]) {
+      databaseFoundTeen = await PokeService.checkPokemon(
+        evolution.teen.id[0],
+        realToken
+      );
+    } else {
+      databaseFoundTeen = { data: "unStored" };
+    }
+    let databaseFoundAdult;
+    if (evolution.adult.id[0]) {
+      databaseFoundAdult = await PokeService.checkPokemon(
+        evolution.adult.id[0],
+        realToken
+      );
+    } else {
+      databaseFoundAdult = { data: "unStored" };
+    }
     let databaseFound = await PokeService.checkPokemon(data.id, realToken);
     if (!changeLevel && !data.founddata) {
       await PokeService.updatePokemon(
@@ -535,10 +555,15 @@ export default function Training({
   const teenJump = async () => {
     let { founddata } = data;
     let { evolution } = data;
-    let databaseFoundAdult = await PokeService.checkPokemon(
-      evolution.adult.id[0],
-      realToken
-    );
+    let databaseFoundAdult;
+    if (evolution.adult.id[0]) {
+      databaseFoundAdult = await PokeService.checkPokemon(
+        evolution.adult.id[0],
+        realToken
+      );
+    } else {
+      databaseFoundAdult = { data: "unStored" };
+    }
     let databaseFound = await PokeService.checkPokemon(data.id, realToken);
     if (!changeLevel || changeLevel == data.founddata.level) {
       await PokeService.updatePokemon(
@@ -804,17 +829,19 @@ export default function Training({
 
   const [getEvolve, setGetEvolve] = useState(false);
   useEffect(() => {
-    let { baby, teen } = data.evolution;
-    if (!baby.minLevel[0]) {
+    let { baby, teen, adult } = data.evolution;
+    if (!baby.minLevel[0] && teen.id[0]) {
       if (changeLevel == 15) {
-        setGetEvolve(true);
-      }
-    } else if (!teen.minLevel[0]) {
-      if (changeLevel == 30) {
         setGetEvolve(true);
       }
     } else if (baby.minLevel[0]) {
       if (changeLevel == baby.minLevel[0]) {
+        setGetEvolve(true);
+      }
+    }
+
+    if (!teen.minLevel[0] && adult.id[0]) {
+      if (changeLevel == 30) {
         setGetEvolve(true);
       }
     } else if (teen.minLevel[0]) {
